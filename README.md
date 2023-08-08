@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Система мониторинга Zabbix`" - `Николай Концевой`
+# Домашнее задание к занятию "`Что такое DevOps. СI/СD`" - `Николай Концевой`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -24,144 +24,78 @@
 
 ### Задание 1
 
-Установите Zabbix Server с веб-интерфейсом.
+**Что нужно сделать:**
 
-#### Процесс выполнения
-1. Выполняя ДЗ сверяйтесь с процессом отражённым в записи лекции.
-2. Установите PostgreSQL. Для установки достаточна та версия что есть в системном репозитороии Debian 11
-3. Пользуясь конфигуратором комманд с официального сайта, составьте набор команд для установки последней версии Zabbix с поддержкой PostgreSQL и Apache
-4. Выполните все необходимые команды для установки Zabbix Server и Zabbix Web Server
+1. Установите себе jenkins по инструкции из лекции или любым другим способом из официальной документации. Использовать Docker в этом задании нежелательно.
+2. Установите на машину с jenkins [golang](https://golang.org/doc/install).
+3. Используя свой аккаунт на GitHub, сделайте себе форк [репозитория](https://github.com/netology-code/sdvps-materials.git). В этом же репозитории находится [дополнительный материал для выполнения ДЗ](https://github.com/netology-code/sdvps-materials/blob/main/CICD/8.2-hw.md).
+3. Создайте в jenkins Freestyle Project, подключите получившийся репозиторий к нему и произведите запуск тестов и сборку проекта ```go test .``` и  ```docker build .```.
 
-#### Требования к результату 
-1. Прикрепите в файл README.md скриншот авторизации в админке
-2. Приложите в файл README.md текст использованных команд в GitHub
-
+В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
 
 ### Ответ 1
 
-1. Скриншот:
-![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/login_zabbix.jpg)
+![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/config1.jpg)
 
-2. Использованные команды:
+![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/config1.2.jpg)
 
- - установка PostgreSQL
-```
-sudo update
-
-sudo apt install postgresql
-```
-
- - установка репозитория Zabbix
- ```
- sudo wget https://repo.zabbix.com/zabbix/6.0/debian/pool/main/z/zabbix-release/zabbix-release_6.0-4+debian11_all.deb
-
- sudo dpkg -i zabbix-release_6.0-4+debian11_all.deb
- 
- sudo apt update
- ```
-
- - Установка Zabbix-server и веб-интерфейса
- ```
- sudo apt install zabbix-server-pgsql zabbix-frontend-php php7.4-pgsql zabbix-apache-conf zabbix-sql-scripts
- ```
-
- - Создание базы данных
- ```
- sudo -u postgres createuser --pwprompt zabbix
-
- sudo -u postgres createdb -O zabbix zabbix
-
- sudo zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
- ```
-
- - Редактирование файла конфигурации (установить пароль в строке DBPassword=)
- ```
- sudo nano /etc/zabbix/zabbix_server.conf
- ```
-
- - запуск и автозапуск Zabbix-server
- ```
- sudo systemctl restart zabbix-server apache2
- sudo systemctl enable zabbix-server apache2
- ```
+![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/build1.jpg)
 
 ---
-### Задание 2 
 
-Установите Zabbix Agent на два хоста.
+### Задание 2
 
-#### Процесс выполнения
-1. Выполняя ДЗ сверяйтесь с процессом отражённым в записи лекции.
-2. Установите Zabbix Agent на 2 виртмашины, одной из них может быть ваш Zabbix Server
-3. Добавьте Zabbix Server в список разрешенных серверов ваших Zabbix Agentов
-4. Добавьте Zabbix Agentов в раздел Configuration > Hosts вашего Zabbix Servera
-5. Проверьте что в разделе Latest Data начали появляться данные с добавленных агентов
+**Что нужно сделать:**
 
-#### Требования к результату 
+1. Создайте новый проект pipeline.
+2. Перепишите сборку из задания 1 на declarative в виде кода.
 
-1. Приложите в файл README.md скриншот раздела Configuration > Hosts, где видно, что агенты подключены к серверу
-2. Приложите в файл README.md скриншот лога zabbix agent, где видно, что он работает с сервером
-3. Приложите в файл README.md скриншот раздела Monitoring > Latest data для обоих хостов, где видны поступающие от агентов данные.
-4. Приложите в файл README.md текст использованных команд в GitHub
+В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
+
 
 ### Ответ 2
 
-
-1. 
-![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/connect_zabbix-agent.jpg)
-
-2. 
-![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/agent-log.jpg)
-
-3. 
-![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/latest_data.jpg)
+![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/config2.jpg)
 
 
-4. Использованные команды:
-
-
- - установка репозитория Zabbix
- ```
- sudo wget https://repo.zabbix.com/zabbix/6.0/debian/pool/main/z/zabbix-release/zabbix-release_6.0-4+debian11_all.deb
-
- sudo dpkg -i zabbix-release_6.0-4+debian11_all.deb
- 
- sudo apt update
- ```
-
- - установка zabbix-agent
- ```
- sudo apt install zabbix-agent
- ```
-
- - Редактирование файла конфигурации (в строчке Server= указать ip zabbix-server)
- ```
- sudo nano /etc/zabbix/zabbix_agentd.conf
- ```
-
- - запуск и автозапуск Zabbix-agent
- ```
- sudo systemctl restart zabbix-agent
- sudo systemctl enable zabbix-agent
- ```
-
- - посмотреть логи
- ```
- tail -f /var/log/zabbix/zabbix_agentd.log
- ```
-
+![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/build2.jpg)
 
 ---
-## Задание 3 со звёздочкой*
-Установите Zabbix Agent на Windows (компьютер) и подключите его к серверу Zabbix.
 
-#### Требования к результаты 
-1. Приложите в файл README.md скриншот раздела Latest Data, где видно свободное место на диске C:
---- 
+### Задание 3
 
-## Критерии оценки
+**Что нужно сделать:**
 
-1. Выполнено минимум 2 обязательных задания
-2. Прикреплены требуемые скриншоты и тексты 
-3. Задание оформлено в шаблоне с решением и опубликовано на GitHub
+1. Установите на машину Nexus.
+1. Создайте raw-hosted репозиторий.
+1. Измените pipeline так, чтобы вместо Docker-образа собирался бинарный go-файл. Команду можно скопировать из Dockerfile.
+1. Загрузите файл в репозиторий с помощью jenkins.
+
+В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
+
+
+### Ответ 3
+
+![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/config3.jpg)
+
+![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/build3.jpg)
+
+![Скрин админки Zabbix](https://github.com/Stitchzxz/homework_netology/blob/main/screen/nexus3.jpg)
+
+---
+## Дополнительные задания* (со звёздочкой)
+
+Их выполнение необязательное и не влияет на получение зачёта по домашнему заданию. Можете их решить, если хотите лучше разобраться в материале.
+
+---
+
+### Задание 4*
+
+Придумайте способ версионировать приложение, чтобы каждый следующий запуск сборки присваивал имени файла новую версию. Таким образом, в репозитории Nexus будет храниться история релизов.
+
+Подсказка: используйте переменную BUILD_NUMBER.
+
+В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
+
+
 
