@@ -53,12 +53,14 @@
 ### Ответ 1
 
 
-[Terraform Playbook](https://github.com/Stitchzxz/homework_netology/blob/main/files/main.tf)
+1. [Terraform Playbook](https://github.com/Stitchzxz/homework_netology/blob/main/files/main.tf)
 
 
+2. 
 ![status balancer](https://github.com/Stitchzxz/homework_netology/blob/main/screen/balancer.png)
 
 
+3. 
 ![balance target group](https://github.com/Stitchzxz/homework_netology/blob/main/screen/balance_target_group.png)
 
 
