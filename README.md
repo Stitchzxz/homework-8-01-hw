@@ -56,11 +56,11 @@
 1. [Terraform Playbook](https://github.com/Stitchzxz/homework_netology/blob/main/files/main.tf)
 
 
-2. 
+2. Скриншот статуса балансировщика и целевой группы:
 ![status balancer](https://github.com/Stitchzxz/homework_netology/blob/main/screen/balancer.png)
 
 
-3. 
+3. Скриншот страницы, которая открылась при запросе IP-адреса балансировщика:
 ![balance target group](https://github.com/Stitchzxz/homework_netology/blob/main/screen/balance_target_group.png)
 
 
