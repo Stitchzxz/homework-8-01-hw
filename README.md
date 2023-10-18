@@ -38,7 +38,7 @@ $ pip install pika
 
 ### Ответ 2.
 
-![Выполнение скрипта прод](https://github.com/Stitchzxz/homework_netology/blob/main/screen/2-1prod.png)
+![Выполнение скрипта прод](https://github.com/Stitchzxz/homework_netology/blob/main/screen/2-1produc.png)
 ![Выполнение скрипта консум](https://github.com/Stitchzxz/homework_netology/blob/main/screen/2-2consum.png)
 ![Выполнение скрипта консум2](https://github.com/Stitchzxz/homework_netology/blob/main/screen/2-3consum2.png)
 
