@@ -10,8 +10,11 @@ where district LIKE 'K%a' AND district NOT LIKE '% %';
 #2 Задание
 SELECT amount AS Платеж, CAST(payment_date AS DATE) AS Дата_платежа
 FROM payment
-WHERE amount > 10 AND payment_date BETWEEN 20050615 AND 20050618+1 #<= Как сделать правильно? =>(18е число вкл.)
+WHERE amount > 10 AND payment_date BETWEEN '2005-06-15 00:00:00' AND '2005-06-18 23:59:59'
 ORDER BY Дата_платежа ASC;
+
+
+
 
 
 #3 Задание
