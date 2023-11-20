@@ -28,18 +28,23 @@
 ### Ответ 2
 
 Установлены два контейнера в docker
+
 ![докер](https://github.com/Stitchzxz/homework_netology/blob/main/screen/docker_ps.png)
 
 Статус Master:
+
 ![статус мастер](https://github.com/Stitchzxz/homework_netology/blob/main/screen/status_master.png)
 
 Статус Slave:
+
 ![статус слейв](https://github.com/Stitchzxz/homework_netology/blob/main/screen/status_slave.png)
 
 Создание новой базы на Master:
+
 ![новая база мастер](https://github.com/Stitchzxz/homework_netology/blob/main/screen/master-db.png)
 
 Реплицированная новая база на Slave:
+
 ![новая база слейв](https://github.com/Stitchzxz/homework_netology/blob/main/screen/slave-db.png)
 
 ---
