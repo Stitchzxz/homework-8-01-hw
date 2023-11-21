@@ -103,14 +103,3 @@ select * from test_table;
 
 
 
-
-
-
-
-
-### Ответ 2
-
-Установлены два контейнера в docker
-
-![докер](https://github.com/Stitchzxz/homework_netology/blob/main/screen/docker_ps.png)
-
